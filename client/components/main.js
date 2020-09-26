@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 
-const Main = ({ setUserName }) => {
+const Main = ({ setUserName, getRepos }) => {
   const [value, setValue] = useState('')
 
   const controlInput = (event) => {
     const newValue = event.target.value
     setValue(newValue)
+    setUserName(newValue)
   }
 
   const getUserName = () => {
-    setUserName(value)
     setValue('')
+    getRepos()
   }
 
   return (
