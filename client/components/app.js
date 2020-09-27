@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+// import { Route } from 'react-router-dom'
 import axios from 'axios'
 
 import Head from './head'
@@ -29,6 +30,21 @@ const App = () => {
   return (
     <div>
       <Head title="Hello" />
+      {/* <Route
+        exact
+        path="/"
+        component={() => <Main setUserName={setUserName} getRepos={getRepos} />}
+      />
+      <Route
+        exact
+        path="/:username"
+        component={() => <ListOfRepos repos={repos} getReadMe={getReadMe} />}
+      />
+      <Route
+        exact
+        path="/:username/:repositoryName"
+        component={() => <TextOfReadme readMe={readMe} />}
+      /> */}
       <Main setUserName={setUserName} getRepos={getRepos} />
       <ListOfRepos repos={repos} getReadMe={getReadMe} />
       <TextOfReadme readMe={readMe} />

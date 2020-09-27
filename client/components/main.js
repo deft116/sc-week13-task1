@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+// import { Link } from 'react-router-dom'
 
 const Main = ({ setUserName, getRepos }) => {
   const [value, setValue] = useState('')
@@ -22,12 +23,14 @@ const Main = ({ setUserName, getRepos }) => {
         value={value}
         onChange={controlInput}
       />
+
       <button
         className="bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white px-4 py-1 m-2 rounded"
         type="button"
         onClick={getUserName}
       >
         Search
+        {/* <Link to="/:username" /> */}
       </button>
     </div>
   )
