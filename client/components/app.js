@@ -9,6 +9,7 @@ import TextOfReadme from './text-of-readme'
 const App = () => {
   const [userName, setUserName] = useState('')
   const [repos, setRepos] = useState([])
+  const [readMe, setReadMe] = useState()
 
   const getRepos = () => {
     axios
@@ -18,12 +19,19 @@ const App = () => {
       .then((res) => setRepos(res))
   }
 
+  const getReadMe = (event) => {
+    const repo = event.target.textContent
+    axios
+      .get(`https://raw.githubusercontent.com/${userName}/${repo}/master/README.md`)
+      .then((response) => setReadMe(response.data))
+  }
+
   return (
     <div>
       <Head title="Hello" />
       <Main setUserName={setUserName} getRepos={getRepos} />
-      <ListOfRepos repos={repos} />
-      <TextOfReadme />
+      <ListOfRepos repos={repos} getReadMe={getReadMe} />
+      <TextOfReadme readMe={readMe} />
     </div>
   )
 }
