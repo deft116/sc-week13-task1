@@ -7,7 +7,9 @@ const ListOfRepos = ({ repos }) => {
         Repositories:
       </div>
       <div className="w-1/3 border border-t-0 border-teal-500 rounded-b px-4 py-3 text-gray-700">
-        <p>{JSON.stringify(repos)}</p>
+        {repos.map((item) => (
+          <p key={new Date().getTime()}>{item}</p>
+        ))}
       </div>
     </div>
   )
